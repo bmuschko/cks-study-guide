@@ -8,9 +8,9 @@ This study guide walks you through all the topics you need to fully prepare for 
 
 1. Exam Details and Resources
 2. link:ch02[Cluster Setup]
-3. ./ch03[Cluster Hardening]
-4. ./ch04[System Hardening]
-5. ./ch05[Minimize Microservice Vulnerabilities]
-6. ./ch06[Supply Chain Security]
-7. ./ch07[Monitoring, Logging and Runtime Security]
-8. ./app-a[Appendix A: Answers to Review Questions]
+3. link:ch03[Cluster Hardening]
+4. link:ch04[System Hardening]
+5. link:ch05[Minimize Microservice Vulnerabilities]
+6. link:ch06[Supply Chain Security]
+7. link:ch07[Monitoring, Logging and Runtime Security]
+8. link:app-a[Appendix A: Answers to Review Questions]
