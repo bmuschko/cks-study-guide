@@ -7,7 +7,7 @@ This study guide walks you through all the topics you need to fully prepare for 
 == Source Code
 
 1. Exam Details and Resources
-2. ./ch02[Cluster Setup]
+2. link:ch02[Cluster Setup]
 3. ./ch03[Cluster Hardening]
 4. ./ch04[System Hardening]
 5. ./ch05[Minimize Microservice Vulnerabilities]
