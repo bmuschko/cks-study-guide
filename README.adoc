@@ -1,0 +1,16 @@
+= Certified Kubernetes Security Specialist (CKS) Study Guide
+
+Source code for book "Certified Kubernetes Security Specialist (CKS) Study Guide", In-Depth Guidance and Practice, published by Benjamin Muschko for O'Reilly Media Inc.
+
+This study guide walks you through all the topics you need to fully prepare for the exam covering Kubernetes 1.24. Author Benjamin Muschko also shares his personal experience with preparing for all aspects of the exam.
+
+== Source Code
+
+1. Exam Details and Resources
+2. ./ch02[Cluster Setup]
+3. ./ch03[Cluster Hardening]
+4. ./ch04[System Hardening]
+5. ./ch05[Minimize Microservice Vulnerabilities]
+6. ./ch06[Supply Chain Security]
+7. ./ch07[Monitoring, Logging and Runtime Security]
+8. ./app-a[Appendix A: Answers to Review Questions]
