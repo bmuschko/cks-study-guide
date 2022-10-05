@@ -1,0 +1,9 @@
+#include <tunables/global>
+
+profile k8s-deny-write flags=(attach_disconnected) {
+  #include <abstractions/base>
+
+  file, <2>
+
+  deny /** w, <3>
+}

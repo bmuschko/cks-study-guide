@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-seccomp
+spec:
+  securityContext:
+    seccompProfile:
+      type: Localhost
+      localhostProfile: profiles/touch-violation.json
+  containers:
+  - name: hello
+    image: busybox:1.28
+    command: ["sh", "-c", "echo 'Hello seccomp!' && sleep 1h"]
+    securityContext:
+      allowPrivilegeEscalation: false
