@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: network-call
+spec:
+  securityContext:
+    seccompProfile:
+      type: Localhost
+      localhostProfile: profiles/audit.json
+  containers:
+  - name: network-call
+    image: alpine/curl:3.14
+    command: ["sh", "-c", "while true; do ping -c 1 google.com; sleep 5; done"]
+    securityContext:
+      allowPrivilegeEscalation: false
