@@ -1,6 +1,10 @@
 = Certified Kubernetes Security Specialist (CKS) Study Guide
 
-Source code for book "Certified Kubernetes Security Specialist (CKS) Study Guide", In-Depth Guidance and Practice, published by Benjamin Muschko for O'Reilly Media Inc.
+++++
+<br>
+<img align="left" role="left" src="https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9781098132965/files/assets/cover.png" width="110" alt="Book Cover" />
+++++
+Source code for book https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/["Certified Kubernetes Security Specialist (CKS) Study Guide"], In-Depth Guidance and Practice, published by Benjamin Muschko for O'Reilly Media Inc.
 
 This study guide walks you through all the topics you need to fully prepare for the exam covering Kubernetes 1.24. Author Benjamin Muschko also shares his personal experience with preparing for all aspects of the exam.
 
