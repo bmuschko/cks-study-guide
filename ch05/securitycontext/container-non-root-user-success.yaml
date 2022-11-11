@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: non-root-success
+spec:
+  containers:
+  - image: bitnami/nginx:1.23.1
+    name: nginx
+    securityContext:
+      runAsNonRoot: true

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: non-root-error
+spec:
+  containers:
+  - image: nginx:1.23.1
+    name: nginx
+    securityContext:
+      runAsNonRoot: true
