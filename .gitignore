@@ -3,3 +3,4 @@
 kubeadm-init.out
 admin.conf
 *-console.log
+out
