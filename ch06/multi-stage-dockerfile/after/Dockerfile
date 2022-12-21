@@ -12,5 +12,4 @@ RUN go build -o ./out/go-sample-app .
 FROM alpine:3.17.0
 RUN apk add ca-certificates
 COPY --from=build /tmp/go-sample-app/out/go-sample-app /app/go-sample-app
-EXPOSE 8080
 CMD ["/app/go-sample-app"]

@@ -8,5 +8,4 @@ RUN go mod download
 COPY . .
 RUN CGO_ENABLED=0 go test -v
 RUN go build -o /go-sample-app .
-EXPOSE 8080
 CMD ["/go-sample-app"]
