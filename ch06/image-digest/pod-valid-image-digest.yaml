@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine-valid
+spec:
+  containers:
+  - name: alpine
+    image: alpine:3.17.0@sha256:c0d488a800e4127c334ad20d61d7bc21b4097540327217dfab52262adc02380c
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo hello; sleep 10; done"]
