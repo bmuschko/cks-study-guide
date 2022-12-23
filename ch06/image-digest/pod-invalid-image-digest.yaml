@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
   - name: alpine
-    image: alpine:3.17.0@sha256:d006a643bccb6e9adbabaae668533c7f2e5111572fffb5c61cb7fcba7ef4150b
+    image: alpine@sha256:d006a643bccb6e9adbabaae668533c7f2e5111572fffb5c61cb7fcba7ef4150b
     command: ["/bin/sh"]
     args: ["-c", "while true; do echo hello; sleep 10; done"]
