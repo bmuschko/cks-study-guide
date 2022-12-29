@@ -1,0 +1,4 @@
+keyUsage = critical, digitalSignature, keyEncipherment
+basicConstraints = critical, CA:FALSE
+extendedKeyUsage = serverAuth, clientAuth
+subjectAltName = DNS:image-validation-webhook

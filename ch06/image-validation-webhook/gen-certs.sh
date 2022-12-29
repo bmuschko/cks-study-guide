@@ -7,12 +7,18 @@ cd certs
 
 # Generate self-signed root CA cert
 openssl genrsa -out ca.key 4096
-openssl req -x509 -new -nodes -key ca.key -sha256 -days 36500 -subj "/CN=cks-ca" -out ca.crt
+openssl req -x509 -new -nodes -key ca.key -sha256 -days 36500 -subj "/OU=automated-ascent/CN=cks-ca" -out ca.crt
 
 # Generate self-signed cert for application
 openssl genrsa -out image-validation-webhook.key 2048
 openssl req -new -sha256 -key image-validation-webhook.key -subj "/CN=image-validation-webhook" -out image-validation-webhook.csr
-openssl x509 -req -in image-validation-webhook.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out image-validation-webhook.crt -days 36500 -sha256
+cat << EOF > extfile.cnf
+keyUsage = critical, digitalSignature, keyEncipherment
+basicConstraints = critical, CA:FALSE
+extendedKeyUsage = serverAuth, clientAuth
+subjectAltName = DNS:image-validation-webhook
+EOF
+openssl x509 -req -in image-validation-webhook.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out image-validation-webhook.crt -days 36500 -sha256 -extfile extfile.cnf
 
 # Generate self-signed cert for API server
 openssl genrsa -out api-server-client.key 2048
