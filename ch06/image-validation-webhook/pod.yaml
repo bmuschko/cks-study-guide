@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: image-validation-webhook
+spec:
+  containers:
+  - name: image-validation-webhook
+    image: bmuschko/image-validation-webhook:0.0.1
+    ports:
+    - containerPort: 8080
