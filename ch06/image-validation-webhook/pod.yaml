@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   name: image-validation-webhook
 spec:
+  hostNetwork: true # Only needed if you want to map the Pod's IP address to the host via /etc/hosts
   containers:
   - name: image-validation-webhook
     image: bmuschko/image-validation-webhook:0.0.1
