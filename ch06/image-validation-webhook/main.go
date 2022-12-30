@@ -55,7 +55,7 @@ func validate(w http.ResponseWriter, req *http.Request) {
 		message = fmt.Sprintf("Denied request: %v", failureMessages)
 	}
 
-	output := fmt.Sprintf("{\"apiVersion\": \"imagepolicy.k8s.io/v1alpha1\",\"kind\": \"ImageReview\",\"status\": {\"allowed\": %v,\"reason\": \"%v\"}}", passed, message)
+	output := fmt.Sprintf("{\"apiVersion\": \"imagepolicy.k8s.io/v1alpha1\", \"kind\": \"ImageReview\", \"status\": {\"allowed\": %v,\"reason\": \"%v\"}}", passed, message)
 	log.Printf("Response %v", output)
 	fmt.Fprintf(w, output)
 }

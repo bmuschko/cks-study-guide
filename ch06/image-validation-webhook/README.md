@@ -26,16 +26,16 @@ $ docker run -p 8080:8080 -d bmuschko/image-validation-webhook:0.0.1
 
 ## Calling the Endpoint
 
-The following `curl` command calls the validation logic for the container image `nginx:1.19.0`. As you can see in the JSON response, the image is not denied.
+The following `curl` command calls the validation logic for the container image `nginx:1.19.0`. As you can see from the JSON response, the image is denied.
 
 ```
-$ curl -X POST -H "Content-Type: application/json" -d '{"spec": {"containers": [{"image": "nginx:1.19.0"}]}}' -k https://localhost:8080/validate
-{"apiVersion": "imagepolicy.k8s.io/v1alpha1","kind": "ImageReview","status": {"allowed": false,"reason": "Denied request: [container 1 has an invalid image repo nginx:1.19.0, allowed repos are [gcr.io/]]"}}
+$ curl -X POST -H "Content-Type: application/json" -k -d '{"apiVersion": "imagepolicy.k8s.io/v1alpha1", "kind": "ImageReview", "spec": {"containers": [{"image": "nginx:1.19.0"}]}}' https://localhost:8080/validate
+{"apiVersion": "imagepolicy.k8s.io/v1alpha1", "kind": "ImageReview", "status": {"allowed": false, "reason": "Denied request: [container 1 has an invalid image repo nginx:1.19.0, allowed repos are [gcr.io/]]"}}
 ```
 
-The following `curl` command calls the validation logic for the container image `gcr.io/nginx:1.19.0`. As you can see in the JSON response, the image is allowed.
+The following `curl` command calls the validation logic for the container image `gcr.io/nginx:1.19.0`. As you can see from the JSON response, the image is allowed.
 
 ```
-$ curl -X POST -H "Content-Type: application/json" -d '{"spec": {"containers": [{"image": "gcr.io/nginx:1.19.0"}]}}' -k https://localhost:8080/validate
-{"apiVersion": "imagepolicy.k8s.io/v1alpha1","kind": "ImageReview","status": {"allowed": true,"reason": ""}}
+$ curl -X POST -H "Content-Type: application/json"  -k -d '{"apiVersion": "imagepolicy.k8s.io/v1alpha1", "kind": "ImageReview", "spec": {"containers": [{"image": "gcr.io/nginx:1.19.0"}]}}' https://localhost:8080/validate
+{"apiVersion": "imagepolicy.k8s.io/v1alpha1", "kind": "ImageReview", "status": {"allowed": true, "reason": ""}}
 ```
