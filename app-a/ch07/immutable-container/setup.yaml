@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hash
+spec:
+  containers:
+  - name: hash
+    image: alpine:3.17.1
+    command: ["sh", "-c", "if [ ! -d /var/config ]; then mkdir -p /var/config; fi; while true; do echo $RANDOM | md5sum | head -c 20 >> /var/config/hash.txt; sleep 20; done"]
