@@ -9,10 +9,10 @@ spec:
   policyTypes:
   - Egress
   egress:
-  - ports:
+  - to:
+    - namespaceSelector: {}
+    ports:
     - port: 53
       protocol: UDP
     - port: 53
       protocol: TCP
-  - to:
-    - namespaceSelector: {}
