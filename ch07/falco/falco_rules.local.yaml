@@ -1,0 +1,11 @@
+- rule: Terminal shell in container
+  desc: A shell was used as the entrypoint/exec point into a container with an attached terminal.
+  condition: >
+    spawned_process and container
+    and shell_procs and proc.tty != 0
+    and container_entrypoint
+    and not user_expected_terminal_shell_in_container_conditions
+  output: >
+    Opened shell: %evt.time,%user.name,%container.name
+  priority: ALERT
+  tags: [container, shell, mitre_execution]
