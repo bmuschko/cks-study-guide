@@ -10,9 +10,8 @@ jobs:
         uses: actions/checkout@v1
       - name: Set up Kubeconform
         run: |
-            uname -m
             wget https://github.com/yannh/kubeconform/releases/download/v0.6.1/kubeconform-linux-amd64.tar.gz
             tar xf kubeconform-linux-amd64.tar.gz
             sudo cp kubeconform /usr/local/bin
       - name: Validate Against Kubernetes Schema
-        run: kubeconform -kubernetes-version=1.26.1 -ignore-missing-schemas -summary -ignore-filename-pattern=falco ./**/*.yaml
+        run: kubeconform -kubernetes-version=1.26.1 -ignore-missing-schemas -ignore-filename-pattern=falco -ignore-filename-pattern=.github/workflows -ignore-filename-pattern=.json$ -summary .
