@@ -11,7 +11,8 @@ jobs:
       - name: Set up Kubeconform
         run: |
             wget https://github.com/yannh/kubeconform/releases/download/v0.6.1/kubeconform-linux-arm64.tar.gz
-            tar xf kubeconform-linux-amd64.tar.gz
+            ls -l
+            tar xf kubeconform-linux-arm64.tar.gz
             sudo cp kubeconform /usr/local/bin
       - name: Validate Against Kubernetes Schema
         run: kubeconform -kubernetes-version=1.26.1 -ignore-missing-schemas -summary -ignore-filename-pattern=falco ./**/*.yaml
