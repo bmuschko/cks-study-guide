@@ -4,11 +4,14 @@ on: [push, pull_request]
 jobs:
   build:
     name: Validate Manifests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Set up Kubeconform
-        run: go install github.com/yannh/kubeconform/cmd/kubeconform@latest
+        run: |
+            wget https://github.com/yannh/kubeconform/releases/download/v0.6.1/kubeconform-linux-arm64.tar.gz
+            tar xf kubeconform-linux-arm64.tar.gz
+            sudo cp kubeconform /usr/local/bin
       - name: Validate Against Kubernetes Schema
         run: kubeconform -kubernetes-version=1.26.1 -ignore-missing-schemas -summary -ignore-filename-pattern=falco ./**/*.yaml
