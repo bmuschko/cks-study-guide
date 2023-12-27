@@ -5,6 +5,10 @@ API_ADV_ADDRESS=$2
 
 kubeadm init --pod-network-cidr $POD_CIDR --apiserver-advertise-address $API_ADV_ADDRESS | tee /vagrant/kubeadm-init.out
 
+# deb packages for kubelet on pkgs.k8s.io seem to include a systemd service definition for redhat machines #3276
+# apply same sed fix as in https://github.com/kubernetes/release/pull/3279
+sed -i 's;/etc/sysconfig/kubelet;/etc/default/kubelet;g' /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
+systemctl daemon-reload
 echo "KUBELET_EXTRA_ARGS=--node-ip=$API_ADV_ADDRESS --cgroup-driver=systemd" > /etc/default/kubelet
 systemctl restart kubelet
 
