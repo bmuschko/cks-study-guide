@@ -34,7 +34,7 @@ This book covers https://github.com/cncf/curriculum[all objectives relevant to t
 |Minimize host OS footprint (reduce attack surface)             |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch04.html#idm46394759434432[Minimizing the Host OS Footprint] |N/A |N/A
 |Minimize IAM roles |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch04.html#idm46394759394016[Minimizing IAM Roles] |N/A |N/A
 |Minimize external access to the network |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch04.html#idm46394759281040[Minimizing External Access to the Network] |N/A |N/A
-|Appropriately use kernel hardening tools such as AppArmor, seccomp |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch04.html#idm46394759244304[Using Kernel Hardening Tools]|https://apparmor.net/[AppArmor], https://en.wikipedia.org/wiki/Security-Enhanced_Linux[Security-Enhanced Linux] |N/A
+|Appropriately use kernel hardening tools such as AppArmor, seccomp |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch04.html#idm46394759244304[Using Kernel Hardening Tools]|https://apparmor.net/[AppArmor], https://en.wikipedia.org/wiki/Security-Enhanced_Linux[Security-Enhanced Linux] |https://kubernetes.io/docs/tutorials/security/seccomp/[Restrict a Container's Syscalls with seccomp]
 |=======
 
 === Minimize Microservice Vulnerabilities
