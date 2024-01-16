@@ -18,3 +18,4 @@ This study guide walks you through all the topics you need to fully prepare for 
 6. link:ch06[Supply Chain Security]
 7. link:ch07[Monitoring, Logging and Runtime Security]
 8. link:app-a[Appendix A: Answers to Review Questions]
+8. link:app-b/exam-review-guide.adoc[Appendix B: Exam Review Guide] (not available in book)

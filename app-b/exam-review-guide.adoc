@@ -1,0 +1,73 @@
+== Exam Review Guide
+
+This book covers https://github.com/cncf/curriculum[all objectives relevant to the exam] and more. The tables below map the exam objective to the corresponding book chapter. Furthermore, you will also find a reference to the Kubernetes documentation. You can use the mapping as a reference to review specific objectives in more detail.
+
+=== Cluster Setup
+
+[options="header"]
+|=======
+|Exam Objective                                                 |Chapter           |Reference Documentation |Tutorial
+|Use Network security policies to restrict cluster level access |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch02.html#network-policies[Using Network Policies to Restrict Pod-to-Pod Communication] |https://kubernetes.io/docs/concepts/services-networking/network-policies/[Network Policies] |https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/[Declare Network Policy]
+|Use CIS benchmark to review the security configuration of Kubernetes components (etcd, kubelet, kubedns, kubeapi) |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch02.html#idm46394767341840[Applying Kubernetes Component Security Best Practices] |https://github.com/aquasecurity/kube-bench[kube-bench Project], https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/[kube-apiserver], https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/[kubelet], https://etcd.io/docs/latest/op-guide/configuration/[etcd]| N/A
+|Properly set up Ingress objects with security control |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch02.html#idm46394763977024[Creating an Ingress with TLS Termination] |https://kubernetes.io/docs/concepts/services-networking/ingress/#tls[Ingress], https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/[Ingress Controllers] |https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/[Set up Ingress on Minikube with the NGINX Ingress Controller]
+|Protect node metadata and endpoints |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch02.html#node-metadata-endpoints[Protecting Node Metadata and Endpoints]| https://kubernetes.io/docs/reference/networking/ports-and-protocols/[Ports and Protocols] |N/A
+|Minimize use of, and access to, GUI elements |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch02.html#idm46394766181664[Protecting GUI Elements]| https://github.com/kubernetes/dashboard[Kubernetes Dashboard], https://kubernetes.io/docs/reference/access-authn-authz/rbac/[Using RBAC Authorization]| https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md[Creating sample user]
+|Verify platform binaries before deploying |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch02.html#idm46394764311872[Verifying Kubernetes Platform Binaries]| N/A |https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/[Install and Set Up kubectl on Linux]
+|=======
+
+=== Cluster Hardening
+
+[options="header"]
+|=======
+|Exam Objective                                                 |Chapter           |Reference Documentation |Tutorial
+|Restrict access to Kubernetes API |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch03.html#processing-api-request[Interacting with the Kubernetes API]|https://kubernetes.io/docs/reference/access-authn-authz/authentication/[Authenticating] |N/A
+|Use Role Based Access Controls to minimize exposure |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch03.html#restricting-user-permissions[Restricting User Permissions], https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch03.html#minimizing-permissions-service-account[Minimizing Permissions for a Service Account]| https://kubernetes.io/docs/reference/access-authn-authz/rbac/[Using RBAC Authorization] |N/A
+|Exercise caution in using service accounts e.g. disable defaults, minimize permissions on newly created ones |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch03.html#minimizing-permissions-service-account[Minimizing Permissions for a Service Account]|https://kubernetes.io/docs/concepts/security/service-accounts/[Service Accounts] |https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account[Configure Service Accounts for Pods]
+|Update Kubernetes frequently |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch03.html#idm46394759519632[Updating Kubernetes Frequently] |https://kubernetes.io/blog/2021/07/20/new-kubernetes-release-cadence/[Kubernetes Release Cadence Change: Here’s What You Need To Know] | https://kubernetes.io/docs/tasks/administer-cluster/cluster-upgrade/[Upgrade A Cluster], https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/[Upgrading kubeadm clusters]
+|=======
+
+=== System Hardening
+
+[options="header"]
+|=======
+|Exam Objective                                                 |Chapter           |Reference Documentation |Tutorial
+|Minimize host OS footprint (reduce attack surface)             |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch04.html#idm46394759434432[Minimizing the Host OS Footprint] |N/A |N/A
+|Minimize IAM roles |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch04.html#idm46394759394016[Minimizing IAM Roles] |N/A |N/A
+|Minimize external access to the network |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch04.html#idm46394759281040[Minimizing External Access to the Network] |N/A |N/A
+|Appropriately use kernel hardening tools such as AppArmor, seccomp |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch04.html#idm46394759244304[Using Kernel Hardening Tools]|https://apparmor.net/[AppArmor], https://en.wikipedia.org/wiki/Security-Enhanced_Linux[Security-Enhanced Linux] |N/A
+|=======
+
+=== Minimize Microservice Vulnerabilities
+
+[options="header"]
+|=======
+|Exam Objective                                                 |Chapter           |Reference Documentation |Tutorial
+|Setup appropriate OS level security domains             |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch05.html#idm46394753435920[Setting Appropriate OS-Level Security Domains]|https://kubernetes.io/docs/concepts/security/pod-security-admission/[Pod Security Admission], https://github.com/open-policy-agent/gatekeeper[Gatekeeper]| https://kubernetes.io/docs/tasks/configure-pod-container/security-context/[Configure a Security Context for a Pod or Container], https://kubernetes.io/blog/2019/08/06/opa-gatekeeper-policy-and-governance-for-kubernetes/[OPA Gatekeeper: Policy and Governance for Kubernetes]
+|Manage kubernetes secrets |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch05.html#idm46394752139920[Managing Secrets]| https://kubernetes.io/docs/concepts/configuration/secret/[Secrets] | https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/[Managing Secrets using kubectl], https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-config-file/[Managing Secrets using Configuration File], https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/[Encrypting Confidential Data at Rest]
+|Use container runtime sandboxes in multi-tenant environments (e.g. gvisor, kata containers) |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch05.html#idm46394751957056[Understanding Container Runtime Sandboxes] |https://katacontainers.io/[Kata Containers], https://gvisor.dev/[gVisor], https://kubernetes.io/docs/concepts/containers/runtime-class/[Runtime Class]| N/A
+|Implement pod to pod encryption by use of mTLS |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch05.html#idm46394751776208[Understanding Pod-to-Pod Encryption with mTLS] |N/A |https://kubernetes.io/docs/tasks/tls/managing-tls-in-a-cluster/[Manage TLS Certificates in a Cluster]
+|=======
+
+=== Supply Chain Security
+
+[options="header"]
+|=======
+|Exam Objective                                                 |Chapter           |Reference Documentation |Tutorial
+|Minimize base image footprint| https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch06.html#idm46394751695840[Minimizing the Base Image Footprint] |https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/[Ephemeral Containers]| https://docs.docker.com/develop/develop-images/dockerfile_best-practices/[Overview of best practices for writing Dockerfiles], https://docs.docker.com/build/building/multi-stage/[Multi-stage builds]
+|Secure your supply chain: whitelist allowed image registries, sign and validate images |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch06.html#idm46394751217568[Securing the Supply Chain] |https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy[Image pull policy], https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#imagepolicywebhook[ImagePolicyWebhook admission controller plugin] |N/A
+|Use static analysis of user workloads (e.g. kubernetes resources, docker files) |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch06.html#static-analysis-workload[Static Analysis of Workload] |https://github.com/hadolint/hadolint[Haskell Dockerfile Linter], https://kubesec.io/[Kubesec]|N/A
+|Scan images for known vulnerabilities |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch06.html#idm46394749782656[Scanning Images for Known Vulnerabilities] |https://github.com/aquasecurity/trivy[Trivy] |N/A
+|=======
+
+=== Monitoring, Logging and Runtime Security
+
+[options="header"]
+|=======
+|Exam Objective                                                 |Chapter           |Reference Documentation |Tutorial
+|Perform behavioral analytics of syscall process and file activities at the host and container level to detect malicious activities |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch07.html#idm46394749536704[Performing Behavior Analytics] |https://falco.org/[Falco]|https://learn.sysdig.com/falco-101[Falco 101]
+|Detect threats within physical infrastructure, apps, networks, data, users and workloads |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch07.html#idm46394749536704[Performing Behavior Analytics] |https://falco.org/[Falco]|https://learn.sysdig.com/falco-101[Falco 101]
+|Detect all phases of attack regardless where it occurs and how it spreads |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch07.html#idm46394749536704[Performing Behavior Analytics] |https://falco.org/[Falco]|https://learn.sysdig.com/falco-101[Falco 101]
+|Perform deep analytical investigation and identification of bad actors within environment |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch07.html#idm46394749536704[Performing Behavior Analytics] |https://falco.org/[Falco]|https://learn.sysdig.com/falco-101[Falco 101]
+|Ensure immutability of containers at runtime |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch07.html#idm46394748739344[Ensuring Container Immutability] |N/A |https://kubernetes.io/docs/tasks/configure-pod-container/security-context/[Configure a Security Context for a Pod or Container]
+|Use Audit Logs to monitor access |https://learning.oreilly.com/library/view/certified-kubernetes-security/9781098132965/ch07.html#idm46394748573984[Using Audit Logs to Monitor Access]| N/A |https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/[Auditing]
+|=======
